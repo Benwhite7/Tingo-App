@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+:root {
+    --primary-color: #161D6F;
+    --secondary-color: #0B2F9F;
+    --green-special: #55c6da;
+    --green-gentle: #C7FFD8;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+}
+header {
+    height: 100px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+.nav-left {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-left img{
+    height: 60px;
+    width: 60px;
+}
+.nav-left p{
+    text-transform: uppercase;
+    color: white;
+}
+.nav-right {
+    flex: 1;
+}
+.nav-right .menu div{
+    width: 45px;
+    height: 7px;
+    background-color: white;
+    border-radius: 3px;
+    margin: 2px;
+}
+.tincco {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    margin-bottom: 60px;
+}
+.tincco img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+.tincco-description {
+    padding: 20px;
+}
+.tincco::after {
+    content: "";
+    height: 10px;
+    width: 80%;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+}
+
+.search {
+    padding: 25px 10px;
+    background-color: #7bffa3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+.search img {
+    width: 50px;
+}
+.lupa {
+    position: relative;
+    left: calc(50% - 25px);
+}
+
+.roullet-cards {
+    display: flex;
+    height: 290px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+.card-container{
+    position: relative;
+    scroll-snap-align: center;
+    width: 225px;
+    height: 245px;
+    background-color: var(--green-gentle);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+    margin:  10px;
+}
+.card-search {
+    padding: 20px 0;
+    height: 95%;
+}
+.card-search img{
+    height: 151px;
+    width: 225px;
+    object-fit: cover;
+}
+.card-search p{
+    text-transform: uppercase;
+    font-weight: 350;
+    margin-top: 15px;
+    font-size: 15px;
+}
+button {
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: none;
+    background-color: var(--green-special);
+    position: relative;
+    left: calc(50% - 65px);
+    font-family: "Rubik", sans-serif;
+}
+button:hover {
+    cursor: pointer;
+}
+.important {
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-color);
+}
+.important h2 {
+    margin-bottom: 20px;
+}
+.important article {
+    width: 95%;
+    height: 100px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    padding: 10px;
+}
+.ubi {
+    font-size: 14px;
+}
+.important article img {
+    width: 60px;
+}
+.important article div {
+    height: 90px;
+    width: 7px;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+}
+.culture {
+    height: 420px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url("https://www.turiweb.pe/wp-content/uploads/2021/10/tingo-maria2-251021.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+.culture h2{
+    position: relative;
+    top: calc(50% - 40px);
+    padding: 0 10%;
+    color: white;
+}
+.culture button{
+    background-color: white;
+    position: relative;
+    left: 0;
+    top: 45%;
+}
