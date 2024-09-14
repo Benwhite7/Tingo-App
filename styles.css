@@ -3,7 +3,7 @@
     --primary-color: #161D6F;
     --secondary-color: #0B2F9F;
     --green-special: #55c6da;
-    --green-gentle: #C7FFD8;
+    --green-gentle: #6ef998;
 }
 * {
     box-sizing: border-box;
@@ -14,6 +14,7 @@ body {
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
 }
+
 header {
     height: 100px;
     background-color: var(--primary-color);
@@ -44,6 +45,47 @@ header {
     border-radius: 3px;
     margin: 2px;
 }
+.menu-navbar-mobile {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary-color);
+    z-index: 2;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    transition: 1s;
+}
+.menu-navbar-mobile img{
+    margin: 20px 0;
+    height: 110px;
+    width: 110px;
+    position: relative;
+    left: calc(50% - 55px);
+}
+.menu-navbar-mobile h1{
+    color: white;
+    font-weight: 100;
+    padding: 20px
+}
+.close-menu-mobile div{
+    margin-top: 10px;
+    width: 10px;
+    height: 40px;
+    background-color: white;
+    position: absolute;
+    border-radius: 5px;
+}
+.close-menu-mobile .left{
+    right: 20px;
+    transform: rotate(45deg);
+}
+.close-menu-mobile .right{
+    right: 19px;
+    transform:rotate(-45deg)
+}
+
+
 .tincco {
     height: 320px;
     display: flex;
@@ -52,7 +94,7 @@ header {
     position: relative;
     margin-bottom: 60px;
 }
-.tincco img{
+.tingo-img-main{
     width: 100%;
     height: 210px;
     object-fit: cover;
@@ -60,26 +102,35 @@ header {
 .tincco-description {
     padding: 20px;
 }
-.tincco::after {
+.tincco-description::after {
     content: "";
     height: 10px;
     width: 80%;
     background-color: var(--secondary-color);
     border-radius: 10px;
-    position: absolute;
-    right: 10%;
-    bottom: 0;
+    position: relative;
+    display: block;
+    margin-top: 6%;
+    left: 11%;
 }
 
 .search {
     padding: 25px 10px;
-    background-color: #7bffa3;
+    background-color: var(--green-gentle);
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-bottom: 30px;
 }
+
+.roullet-cards::-webkit-scrollbar {
+    height: 6px;
+}
+.roullet-cards::-webkit-scrollbar-thumb {
+    background: #77bd8c; 
+    border-radius: 10px;
+}
+
 .search img {
     width: 50px;
 }
@@ -100,7 +151,7 @@ header {
     scroll-snap-align: center;
     width: 225px;
     height: 245px;
-    background-color: var(--green-gentle);
+    background-color: #106319;
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -108,20 +159,24 @@ header {
     box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
     margin:  10px;
 }
+.extra-info-desktop {
+    display: none;
+}
 .card-search {
-    padding: 20px 0;
-    height: 95%;
+    height: 100%;
 }
 .card-search img{
-    height: 151px;
+    height: 179px;
     width: 225px;
     object-fit: cover;
+    border-radius: 16px 16px 0px 0px;
 }
 .card-search p{
     text-transform: uppercase;
     font-weight: 350;
     margin-top: 15px;
-    font-size: 15px;
+    font-size: 14px;
+    color: white;
 }
 button {
     width: 130px;
@@ -130,10 +185,11 @@ button {
     border-radius: 20px;
     margin-top: 10px;
     border: none;
-    background-color: var(--green-special);
+    background-color: var(--secondary-color);
     position: relative;
     left: calc(50% - 65px);
     font-family: "Rubik", sans-serif;
+    color: white;
 }
 button:hover {
     cursor: pointer;
@@ -149,8 +205,10 @@ button:hover {
 }
 .important h2 {
     margin-bottom: 20px;
+    position: relative;
+    left: calc(50% - 65px);
 }
-.important article {
+.info-important article {    
     width: 95%;
     height: 100px;
     max-width: 500px;
@@ -163,10 +221,10 @@ button:hover {
 .ubi {
     font-size: 14px;
 }
-.important article img {
+.important .info-important img {
     width: 60px;
 }
-.important article div {
+.services-important {
     height: 90px;
     width: 7px;
     border-radius: 5px;
@@ -187,7 +245,203 @@ button:hover {
 }
 .culture button{
     background-color: white;
+    color: var(--primary-color);
     position: relative;
     left: 0;
     top: 45%;
+}
+.extra-info-important {
+    display: none;
+}
+
+.prevent-scroll {
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+.toLeft {
+    transform: translateX(-100%);
+}
+.inactive {
+    display: none;
+}
+@media (min-width: 500px) {
+    header {
+        padding: 0 20px;
+    }
+    .nav-left {
+        flex: 1;
+        text-align: center;
+    }
+    .nav-right {
+        flex: 0;
+    }
+    .menu {
+        display: none;
+    }
+    .menu-navbar-mobile {
+        flex-direction: row;
+        position: relative;
+        flex: 4;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 5px;
+
+    }
+    .menu-navbar-mobile img {
+        display: none;
+    }
+    .menu-navbar-mobile h1 {
+        padding: 0px;
+        font-size: 18px;
+        max-width: 125px;
+    }
+    .close-menu-mobile {
+        display: none;
+    }
+    .toLeft {
+        background-color: var(--primary-color);
+        transform: none;
+    }
+    .tincco-description {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1023px) {
+    .tincco {
+        display: grid;
+        grid-template-areas: "img img title"
+                             "img img elements";
+        height: 500px;
+        margin-bottom: 0;
+        align-items: center;
+        justify-items: center;
+    }
+    .tincco-description {
+        grid-area: title;
+        font-size: 30px;
+        max-width: 500px;
+    }
+    .tingo-img-main{
+        grid-area: img;
+        height: 500px;  
+        width: 100%;     
+    }
+    .extra-info {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+        padding: 0 20px;
+        position: relative;
+        top: -55px;
+    }
+    .extra-info-div{
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 1px 10px 0px #d9d9d9;
+    }    
+    .extra-info-div img{
+        height: 110px;
+    }
+    .extra-info-h2{
+        position: absolute;
+        bottom: -30px;
+        font-weight: 400;
+        color: var(--primary-color);
+    }
+    .extra-info-desktop {
+        display: block;
+    } 
+    .portatil-container {
+        display: flex;
+    }
+
+    .menu-navbar-mobile {
+        gap: 10px;
+    }
+    .menu-navbar-mobile h1 {
+        max-width: 200px;
+        font-size: 23px;
+    }
+    .important {
+        flex-direction: row;
+        text-align: center;
+        height: 530px;
+    }
+    .important .info-important img {
+        width:  100px;
+    }
+    .info-important {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        position: relative;
+        height: 80%;
+    }
+    .info-important h2{
+        position: absolute;
+        top: 0;
+        left: calc(50% - 65px);
+    }
+    .info-important article{
+        flex-direction: column;
+        width: 26%;
+        height: auto;
+    }
+    .services-important {
+        height: 7px;
+        width: 90px;
+    }   
+    .extra-info-important {
+        flex: 1;
+        background-color: var(--primary-color);
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+        color: white;
+    }
+    .extra-info-important h1 {
+        position: absolute;
+        top: 9%;
+        left: calc(50% - 171px);
+    }
+    .recreative-places {
+        display: grid;
+        grid-template-areas: "cine   canopy"
+                             "futbol camping";
+        gap: 25px;
+        margin-top: 30px;
+    }
+    .recreative-places div{
+        width: 150px;
+        height: 175px;
+        border-radius: 10px;
+        background-color: var(--green-special);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        color: var(--primary-color);
+    }
+    .recreative-places div img{
+        width: 96px;
+    }
+}
+@media (min-width: 1440px) {
+    .search {
+        height: 550px;
+        justify-content: space-evenly;
+    }
 }
